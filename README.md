@@ -69,7 +69,7 @@ The project uses a **LangGraph state machine** architecture with the following c
 3. **Tools Package** (`tools/`): Modular tools for different capabilities
 4. **LLM**: Google Gemini 2.5 Flash with rate limiting (9 requests per minute)
 
-## ✨ Features
+## Features
 
 -  **Autonomous multi-step problem solving**: Chains together multiple quiz pages
 -  **Dynamic JavaScript rendering**: Uses Playwright for client-side rendered pages
