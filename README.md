@@ -1,6 +1,5 @@
 ---
 title: LLM Analysis Quiz Solver
-emoji: 🏃
 colorFrom: red
 colorTo: blue
 sdk: docker
@@ -16,7 +15,7 @@ app_port: 7860
 
 An intelligent, autonomous agent built with LangGraph and LangChain that solves data-related quizzes involving web scraping, data processing, analysis, and visualization tasks. The system uses Google's Gemini 2.5 Flash model to orchestrate tool usage and make decisions.
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -31,7 +30,7 @@ An intelligent, autonomous agent built with LangGraph and LangChain that solves 
 - [How It Works](#how-it-works)
 - [License](#license)
 
-## 🔍 Overview
+##  Overview
 
 This project was developed for the TDS (Tools in Data Science) course project, where the objective is to build an application that can autonomously solve multi-step quiz tasks involving:
 
@@ -42,7 +41,7 @@ This project was developed for the TDS (Tools in Data Science) course project, w
 
 The system receives quiz URLs via a REST API, navigates through multiple quiz pages, solves each task using LLM-powered reasoning and specialized tools, and submits answers back to the evaluation server.
 
-## 🏗️ Architecture
+##  Architecture
 
 The project uses a **LangGraph state machine** architecture with the following components:
 
@@ -72,16 +71,16 @@ The project uses a **LangGraph state machine** architecture with the following c
 
 ## ✨ Features
 
-- ✅ **Autonomous multi-step problem solving**: Chains together multiple quiz pages
-- ✅ **Dynamic JavaScript rendering**: Uses Playwright for client-side rendered pages
-- ✅ **Code generation & execution**: Writes and runs Python code for data tasks
-- ✅ **Flexible data handling**: Downloads files, processes PDFs, CSVs, images, etc.
-- ✅ **Self-installing dependencies**: Automatically adds required Python packages
-- ✅ **Robust error handling**: Retries failed attempts within time limits
-- ✅ **Docker containerization**: Ready for deployment on HuggingFace Spaces or cloud platforms
-- ✅ **Rate limiting**: Respects API quotas with exponential backoff
+-  **Autonomous multi-step problem solving**: Chains together multiple quiz pages
+-  **Dynamic JavaScript rendering**: Uses Playwright for client-side rendered pages
+-  **Code generation & execution**: Writes and runs Python code for data tasks
+-  **Flexible data handling**: Downloads files, processes PDFs, CSVs, images, etc.
+-  **Self-installing dependencies**: Automatically adds required Python packages
+-  **Robust error handling**: Retries failed attempts within time limits
+-  **Docker containerization**: Ready for deployment on HuggingFace Spaces or cloud platforms
+-  **Rate limiting**: Respects API quotas with exponential backoff
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 LLM-Analysis-TDS-Project-2/
@@ -100,7 +99,7 @@ LLM-Analysis-TDS-Project-2/
 └── README.md
 ```
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -150,7 +149,7 @@ pip install -e .
 playwright install chromium
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -171,7 +170,7 @@ GOOGLE_API_KEY=your_gemini_api_key_here
 2. Create a new API key
 3. Copy it to your `.env` file
 
-## 🚀 Usage
+##  Usage
 
 ### Local Development
 
@@ -211,7 +210,7 @@ Expected response:
 
 The agent will run in the background and solve the quiz chain autonomously.
 
-## 🌐 API Endpoints
+## API Endpoints
 
 ### `POST /solve`
 
@@ -248,7 +247,7 @@ Health check endpoint for monitoring.
 }
 ```
 
-## 🛠️ Tools & Capabilities
+## Tools & Capabilities
 
 The agent has access to the following tools:
 
@@ -282,7 +281,7 @@ The agent has access to the following tools:
 - Uses `uv add` for fast package resolution
 - Enables the agent to adapt to different task requirements
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Build the Image
 
@@ -311,7 +310,30 @@ docker run -p 7860:7860 \
 4. The Space will automatically build and deploy
 5. The url will be `https://<username>-<space-name>.hf.space/solve`
 
-## 🧠 How It Works
+### Railway Deployment
+
+This project can be deployed directly on Railway.
+
+### Steps
+
+1. Deploy the GitHub repository to Railway.
+2. Add environment variables under **Variables**:
+   - `EMAIL`
+   - `SECRET`
+   - `GOOGLE_API_KEY`
+3. Railway automatically detects the port and exposes the service.
+4. Your public endpoint will appear under the **Domains** section, typically in this format:
+
+   `https://your-app-name.up.railway.app`
+
+### Testing the Deployment
+
+Use Thunder Client, Postman, or curl:
+
+POST `https://your-app-name.up.railway.app/solve`
+
+
+## How It Works
 
 ### 1. Request Reception
 
@@ -367,7 +389,7 @@ The agent follows this loop:
 - Background task completes
 - Logs indicate success or failure
 
-## 📝 Key Design Decisions
+## Key Design Decisions
 
 1. **LangGraph over Sequential Execution**: Allows flexible routing and complex decision-making
 2. **Background Processing**: Prevents HTTP timeouts for long-running quiz chains
@@ -377,7 +399,7 @@ The agent follows this loop:
 6. **Playwright for Scraping**: Handles JavaScript-rendered pages that `requests` cannot
 7. **uv for Dependencies**: Fast package resolution and installation
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
