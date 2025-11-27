@@ -149,7 +149,7 @@ app = graph.compile()
 def run_agent(url: str) -> str:
     app.invoke({
         "messages": [{"role": "user", "content": url}]},
-        config={"recursion_limit": 200},
+        config={"recursion_limit": 5000},
     )
     print("Tasks completed succesfully")
 
